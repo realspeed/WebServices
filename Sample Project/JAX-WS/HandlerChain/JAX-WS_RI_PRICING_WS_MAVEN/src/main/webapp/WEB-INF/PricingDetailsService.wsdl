@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions 
+xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+name="PricingDetailsService" 
+targetNamespace="http://www.allianz.com/PricingDetailsService/"
+xmlns:allps="http://www.allianz.com/PricingDetailsService/" 
+xmlns:dat="http://www.allianz.com/PricingDetailsService/datamodel">
+
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.allianz.com/PricingDetailsService/datamodel">
+      <xsd:element name="pricing-input" type="dat:pricing-input-type"/>
+      <!-- Input Parameter for pricing -->
+      <xsd:complexType name="pricing-input-type">
+      	<xsd:sequence>
+			<xsd:element name="product-code" type="xsd:int"/>
+			<xsd:element name="life-benefit-amount" type="xsd:decimal"/>
+			<xsd:element name="insured-age" type="xsd:int"/>
+			<xsd:element name="insured-gender" type="xsd:string"/>
+			<xsd:element name="policy-duration" type="xsd:int"/>
+			<xsd:element name="policy-start-date" type="xsd:string"/>
+      	</xsd:sequence>
+      </xsd:complexType>
+      
+      <xsd:element name="pricing-output" type="dat:pricing-output-type"/>
+      <!-- Output Parameter for pricing -->
+      <xsd:complexType name="pricing-output-type">
+      	<xsd:sequence>
+      		<xsd:element name="net-premium" type="xsd:decimal"/>
+      		<xsd:element name="gross-premium" type="xsd:decimal"/>
+      		<xsd:element name="policy-end-date" type="xsd:string"/>
+      		<xsd:element name="product-code" type="xsd:int"/>
+      	</xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  
+  <!-- Input Message -->
+  <wsdl:message name="getPricing">
+    <wsdl:part element="dat:pricing-input" name="input"/>
+  </wsdl:message>
+  
+   <!-- Output Message -->
+  <wsdl:message name="getPricingResponse">
+    <wsdl:part element="dat:pricing-output" name="output"/>
+  </wsdl:message>
+  
+  <wsdl:portType name="PricingDetails">
+    <wsdl:operation name="getPricing">
+      <wsdl:input message="allps:getPricing"/>
+      <wsdl:output message="allps:getPricingResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+
+  <wsdl:binding name="PricingDetailsServiceSOAPBinding" type="allps:PricingDetails">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getPricing">
+      <soap:operation soapAction="http://www.allianz.com/PricingDetailsService/getPricing"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  
+  <wsdl:service name="PricingDetailsService">
+    <wsdl:port binding="allps:PricingDetailsServiceSOAPBinding" name="PricingDetailsServiceSOAPPort">
+      <soap:address location="http://www.example.org/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

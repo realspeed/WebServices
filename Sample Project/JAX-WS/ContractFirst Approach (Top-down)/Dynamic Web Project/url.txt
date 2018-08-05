@@ -1,0 +1,10 @@
+http://localhost:8085/JAX-WS_RI_PRICING_WS/PricingDetailsImpl
+
+
+==================================================================
+E:\Dhananjaya-realspeed\SOAP-Training_Allianz\new\JAX-WS_RI_PRICING_WS\src>
+wsimport -d . -keep -verbose E:\Dhananjaya-realspeed\SOAP-Training_Allianz\new\JAX-WS_RI_PRICING_WS\WebContent\WEB-INF\PricingDetailsService.wsdl
+==================================================================
+
+
+wsgen -cp build\classes -keep -verbose -s . com.allianz.pricingdetailsservice.PricingDetailsImpl

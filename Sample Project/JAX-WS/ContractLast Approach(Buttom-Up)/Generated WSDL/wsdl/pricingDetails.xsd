@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Published by JAX-WS RI (http://jax-ws.java.net). RI's version is JAX-WS RI 2.3.0 svn-revision#3528ea595bd29309f69172d231bbce272d21035c.--><xs:schema version="1.0" targetNamespace="http://www.allianz.com/PricingDetailsService/datamodel" xmlns:tns="http://www.allianz.com/PricingDetailsService/datamodel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="pricing-input" type="tns:pricingInputType"/>
+  <xs:element name="pricing-output" type="tns:pricingOutputType"/>
+  <xs:complexType name="pricingInputType">
+    <xs:sequence>
+      <xs:element name="insuredAge" type="xs:int"/>
+      <xs:element name="insuredGender" type="xs:string" minOccurs="0"/>
+      <xs:element name="lifeBenefitAmount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="policyDuration" type="xs:int"/>
+      <xs:element name="policyStartDate" type="xs:string" minOccurs="0"/>
+      <xs:element name="productCode" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="pricingOutputType">
+    <xs:sequence>
+      <xs:element name="grossPremium" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="netPremium" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="policyEndDate" type="xs:string" minOccurs="0"/>
+      <xs:element name="productCode" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

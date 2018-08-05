@@ -1,0 +1,8 @@
+com\allianz\pricingdetailsservice\datamodel\ObjectFactory.class
+com\allianz\pricingdetailsservice\handler\PricingHandler.class
+com\allianz\pricingdetailsservice\PricingDetailsService.class
+com\allianz\pricingdetailsservice\PricingDetails.class
+com\allianz\pricingdetailsservice\datamodel\package-info.class
+com\allianz\pricingdetailsservice\datamodel\PricingInputType.class
+com\allianz\pricingdetailsservice\datamodel\PricingOutputType.class
+com\allianz\pricingdetailsservice\impl\PricingDetailsImpl.class

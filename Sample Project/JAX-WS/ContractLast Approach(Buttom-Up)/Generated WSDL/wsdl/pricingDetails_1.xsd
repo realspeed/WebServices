@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Published by JAX-WS RI (http://jax-ws.java.net). RI's version is JAX-WS RI 2.3.0 svn-revision#3528ea595bd29309f69172d231bbce272d21035c.--><xs:schema version="1.0" targetNamespace="http://www.allianz.com/PricingDetailsService/" xmlns:tns="http://www.allianz.com/PricingDetailsService/" xmlns:ns1="http://www.allianz.com/PricingDetailsService/datamodel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://www.allianz.com/PricingDetailsService/datamodel" schemaLocation="pricingDetails.xsd"/>
+  <xs:element name="getPricing" type="tns:getPricing"/>
+  <xs:element name="getPricingResponse" type="tns:getPricingResponse"/>
+  <xs:complexType name="getPricing">
+    <xs:sequence>
+      <xs:element ref="ns1:pricing-input" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getPricingResponse">
+    <xs:sequence>
+      <xs:element ref="ns1:pricing-output" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
